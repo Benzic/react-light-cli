@@ -1,0 +1,37 @@
+{
+  "name": "react-light-cli",
+  "version": "0.0.1",
+  "description": "a lite react framework",
+  "author": "zhaohuan <690018019@qq.com>",
+  "license": "ISC",
+  "bin": {
+    "booster": "bin/booster.js"
+  },
+  "keywords": [
+    "react",
+    "lite",
+    "light",
+    "cli"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "dependencies": {
+    "commander": "^9.0.0",
+    "chalk": "^4.1.2",
+    "ejs": "^3.1.6",
+    "execa": "^6.0.0",
+    "fs-extra": "^10.0.0",
+    "globby": "^13.0.0",
+    "inquirer": "^8.2.0",
+    "isbinaryfile": "^4.0.8",
+    "ora": "^6.0.1",
+    "request": "^2.88.2",
+    "rimraf": "^3.0.2",
+    "semver": "^7.3.5"
+  },
+  "engines": {
+    "node": ">=12"
+  }
+}

@@ -1,0 +1,19 @@
+0 silly argv {
+0 silly argv   _: [ 'publish' ],
+0 silly argv   composed: 'publish',
+0 silly argv   lernaVersion: '4.0.0',
+0 silly argv   '$0': 'C:\\Users\\User\\AppData\\Roaming\\npm\\node_modules\\lerna\\cli.js'
+0 silly argv }
+1 notice cli v4.0.0
+2 verbose rootPath D:\Users\User\Desktop\booster
+3 error JSONError: Unexpected token "}" (0x7D) in JSON at position 719 while parsing near "...node\": \">=12\"\n  },\n\n}\n" in packages\react-lite-cli\package.json
+3 error
+3 error [0m [90m 35 |[39m   }[33m,[39m[0m
+3 error [0m [90m 36 |[39m[0m
+3 error [0m[31m[1m>[22m[39m[90m 37 |[39m }[0m
+3 error [0m [90m    |[39m [31m[1m^[22m[39m[0m
+3 error [0m [90m 38 |[39m[0m
+3 error
+3 error     at parseJson (D:\Users\User\Desktop\booster\node_modules\parse-json\index.js:29:21)
+3 error     at parse (D:\Users\User\Desktop\booster\node_modules\load-json-file\index.js:15:9)
+3 error     at module.exports (D:\Users\User\Desktop\booster\node_modules\load-json-file\index.js:18:47)
