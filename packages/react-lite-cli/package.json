@@ -1,6 +1,6 @@
 {
   "name": "react-light-cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "a lite react framework",
   "author": "zhaohuan <690018019@qq.com>",
   "license": "ISC",
@@ -18,8 +18,8 @@
     "access": "public"
   },
   "dependencies": {
-    "commander": "^9.0.0",
     "chalk": "^4.1.2",
+    "commander": "^9.0.0",
     "ejs": "^3.1.6",
     "execa": "^6.0.0",
     "fs-extra": "^10.0.0",
