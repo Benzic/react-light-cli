@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-02-28 14:42:09
- * @LastEditTime: 2022-02-28 14:56:49
+ * @LastEditTime: 2022-03-04 16:27:23
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \booster\packages\react-booster-cli\lib\generate.js
@@ -14,22 +14,24 @@ const path = require("path");
 /**
  * @name 渲染文件
  * @param {*} filePath 文件路径
- * @param {*}ejsOptions ejs 注入数据对象
+ * @param {*} ejsOptions ejs注入数据对象
  * @returns 文件内容
  */
 function renderFile(filePath, ejsOptions = {}) {
-  //二进制文件直接返回
+  // 二进制文件直接返回
   if (isBinaryFileSync(filePath)) {
     return fs.readFileSync(filePath);
   }
   const content = fs.readFileSync(filePath, "utf-8");
+
   //src目录下需要经过ejs动态编译
   if (/[\\/]src[\\/].+/.test(filePath)) {
     return ejs.render(content, ejsOptions);
   }
-  //其他文件，比如webpack得配置文件，直接读取返回
+  // 其他文件，比如webpack的配置文件，直接读取返回
   return content;
 }
+
 /**
  * @name 生成项目文件
  * @param {*} answers 收集的问题
@@ -44,19 +46,20 @@ async function generate(answers, targetDir) {
     gitignore: true,
     dot: true,
   });
-  const { isMPA } = answers;
+  const { pageMode } = answers;
+  const isMPA = pageMode === 'MPA';
   // ejs注入的模版变量
   const ejsData = {
     ...answers,
     projectDir: targetDir,
-    pageName: "index",
+    pageName:'index'
   };
   // 生成文件树对象
   const filesTreeObj = {};
   fileList.forEach((oriPath) => {
     let targetPath = oriPath;
     const absolutePath = path.resolve(__dirname, "../template", oriPath);
-
+  
     if (isMPA && /^src[\\/].+/.test(oriPath)) {
       // 针对多页场景，生成多页面模版
       const [dir, file] = oriPath.split(/[\\/]+/);
@@ -72,7 +75,7 @@ async function generate(answers, targetDir) {
       filesTreeObj[targetPath] = content;
     }
   });
-
+  console.log(filesTreeObj)
   return filesTreeObj;
 }
 

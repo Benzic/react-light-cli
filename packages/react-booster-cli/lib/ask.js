@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-02-28 14:38:02
- * @LastEditTime: 2022-02-28 14:40:57
+ * @LastEditTime: 2022-03-04 16:29:38
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \booster\packages\react-booster-cli\lib\ask.js
@@ -24,7 +24,7 @@ const questions = [
     ],
   },
   {
-    name: "isMPA",
+    name: "pageMode",
     type: "list",
     message: "生成单页or多页模版?",
     choices: [
@@ -35,6 +35,66 @@ const questions = [
       {
         name: "多页（MPA）",
         value: true,
+      },
+    ],
+  },
+  {
+    name: "useEslint",
+    type: "list",
+    message: "使用EsLint?",
+    choices: [
+      {
+        name: "是",
+        value: true,
+      },
+      {
+        name: "否",
+        value: false,
+      },
+    ],
+  },
+  {
+    name: "useTypescript",
+    type: "list",
+    message: "使用Typescript?",
+    choices: [
+      {
+        name: "是",
+        value: true,
+      },
+      {
+        name: "否",
+        value: false,
+      },
+    ],
+  },
+  {
+    name: "useImmer",
+    type: "list",
+    message: "使用useImmer?",
+    choices: [
+      {
+        name: "是",
+        value: true,
+      },
+      {
+        name: "否",
+        value: false,
+      },
+    ],
+  },
+  {
+    name: "useHooks",
+    type: "list",
+    message: "使用AHooks?",
+    choices: [
+      {
+        name: "是",
+        value: true,
+      },
+      {
+        name: "否",
+        value: false,
       },
     ],
   },
@@ -50,6 +110,14 @@ const questions = [
       {
         name: "redux",
         value: "redux",
+      },
+      {
+        name: "recoil",
+        value: "recoil",
+      },
+      {
+        name: "zustand",
+        value: "zustand",
       },
     ],
   },

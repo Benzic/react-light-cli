@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-02-28 11:11:49
- * @LastEditTime: 2022-02-28 14:25:27
+ * @LastEditTime: 2022-03-04 16:11:29
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \booster\packages\react-booster-cli\lib\create.js
@@ -21,9 +21,11 @@ const ora = require("ora");
 //输出增色
 const chalk = require("chalk");
 //检测版本
-const checkVersion = require("./check-version");
+const checkVersion = require("./check-verison");
 
 const generate = require("./generate");
+
+const package = require("./package");
 
 const { writeFileTree } = require("./util/file");
 
@@ -44,7 +46,7 @@ async function create(projectName) {
       },
     ]);
     if (answers.ok) {
-      console.loh(chalk.yellow("Deleting old project ..."));
+      console.log(chalk.yellow("Deleting old project ..."));
       rm(projectPath);
       await create(projectName);
     }
@@ -60,19 +62,8 @@ async function create(projectName) {
     const pkg = require("../template/package.json");
     //生成项目配置文件 app.config.json
     const appConfig = {};
-    const { platform, isMPA, stateLibrary, reactRouterVersion } = answers;
-    if (platform === "mobile") {
-      pkg.devDependencies["postcss-pxtorem"] = "^6.0.0";
-      pkg.dependencies["lib-flexible"] = "^0.3.2";
-    } else if (platform === "pc") {
-      pkg.dependencies["antd"] = "latest";
-    }
-    pkg.dependencies[stateLibrary] = "latest";
-    if (reactRouterVersion === "v5") {
-      pkg.devDependencies["react-router"] = "5.1.2";
-    } else if (reactRouterVersion === "v6") {
-      pkg.dependencies["react-router"] = "^6.x";
-    }
+    const { platform } = answers;
+    const pkgObj = await package(answers, pkg);
     appConfig.platform = platform;
     spinner.start("rendering template");
     const filesTreeObj = await generate(answers, projectPath);
@@ -80,7 +71,7 @@ async function create(projectName) {
     spinner.start("🚀 invoking generators...");
     await writeFileTree(projectPath, {
       ...filesTreeObj,
-      "package.json": JSON.stringify(pkg, null, 2),
+      "package.json": JSON.stringify(pkgObj, null, 2),
       "app.config.json": JSON.stringify(appConfig, null, 2),
     });
     spinner.succeed();

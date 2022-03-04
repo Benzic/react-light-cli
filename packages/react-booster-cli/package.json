@@ -19,14 +19,14 @@
   },
   "dependencies": {
     "chalk": "^4.1.2",
-    "commander": "^9.0.0",
+    "commander": "^8.3.0",
     "ejs": "^3.1.6",
-    "execa": "^6.0.0",
+    "execa": "^1.0.0",
     "fs-extra": "^10.0.0",
-    "globby": "^13.0.0",
+    "globby": "^9.2.0",
     "inquirer": "^8.2.0",
     "isbinaryfile": "^4.0.8",
-    "ora": "^6.0.1",
+    "ora": "^4.0.1",
     "request": "^2.88.2",
     "rimraf": "^3.0.2",
     "semver": "^7.3.5"
