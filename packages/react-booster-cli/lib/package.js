@@ -1,10 +1,10 @@
 /*
  * @Author: your name
  * @Date: 2022-02-28 14:42:09
- * @LastEditTime: 2022-03-04 16:13:08
+ * @LastEditTime: 2022-03-07 14:27:24
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: \booster\packages\react-booster-cli\lib\generate.js
+ * @FilePath: \light\packages\react-light-cli\lib\generate.js
  */
 const eslint = {
   eslint: "^7.5.0",
@@ -58,11 +58,11 @@ async function package(answers, pkg) {
       pkg.devDependencies[k] = eslint[k];
     }
   }
-  if (useTypescript) {
-    for (let j in typeScirpt) {
-      pkg.devDependencies[j] = eslint[j];
-    }
-  }
+//   if (useTypescript) {
+//     for (let j in typeScirpt) {
+//       pkg.devDependencies[j] = eslint[j];
+//     }
+//   }
   if (reactRouterVersion === "v5") {
     pkg.devDependencies["react-router"] = "5.1.2";
   } else if (reactRouterVersion === "v6") {

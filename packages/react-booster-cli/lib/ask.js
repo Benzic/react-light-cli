@@ -1,10 +1,10 @@
 /*
  * @Author: your name
  * @Date: 2022-02-28 14:38:02
- * @LastEditTime: 2022-03-04 16:29:38
+ * @LastEditTime: 2022-03-07 14:27:10
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: \booster\packages\react-booster-cli\lib\ask.js
+ * @FilePath: \light\packages\react-light-cli\lib\ask.js
  */
 const { prompt } = require("inquirer");
 const questions = [
@@ -53,25 +53,25 @@ const questions = [
       },
     ],
   },
-  {
-    name: "useTypescript",
-    type: "list",
-    message: "使用Typescript?",
-    choices: [
-      {
-        name: "是",
-        value: true,
-      },
-      {
-        name: "否",
-        value: false,
-      },
-    ],
-  },
+  // {
+  //   name: "useTypescript",
+  //   type: "list",
+  //   message: "使用Typescript?",
+  //   choices: [
+  //     {
+  //       name: "是",
+  //       value: true,
+  //     },
+  //     {
+  //       name: "否",
+  //       value: false,
+  //     },
+  //   ],
+  // },
   {
     name: "useImmer",
     type: "list",
-    message: "使用useImmer?",
+    message: "使用useImmer?(用于hook的数据结构管理)",
     choices: [
       {
         name: "是",
@@ -86,7 +86,7 @@ const questions = [
   {
     name: "useHooks",
     type: "list",
-    message: "使用AHooks?",
+    message: "使用AHooks?(最好用的hook库)",
     choices: [
       {
         name: "是",

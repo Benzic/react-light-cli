@@ -1,10 +1,10 @@
 /*
  * @Author: your name
  * @Date: 2022-02-28 14:30:55
- * @LastEditTime: 2022-03-03 16:38:10
+ * @LastEditTime: 2022-03-07 14:27:15
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- * @FilePath: \booster\packages\react-booster-cli\lib\check-verison.js
+ * @FilePath: \light\packages\react-light-cli\lib\check-verison.js
  */
 const request = require("request");
 const semver = require("semver");
