@@ -18,6 +18,7 @@
     "@babel/preset-react": "^7.14.5",
     "@babel/preset-typescript": "^7.15.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.1",
+    "@babel/plugin-proposal-decorators": "^7.17.2",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
     "babel-plugin-import": "^1.13.3",
@@ -62,5 +63,15 @@
     "last 2 versions",
     "not ie <= 8",
     "Android >= 4.0"
-  ]
+  ],
+  "babel": {
+    "plugins": [
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ]
+    ]
+  }
 }

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-02-28 14:42:09
- * @LastEditTime: 2022-03-07 14:27:21
+ * @LastEditTime: 2022-03-11 17:10:05
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \light\packages\react-light-cli\lib\generate.js
@@ -47,32 +47,39 @@ async function generate(answers, targetDir) {
     dot: true,
   });
   const { pageMode } = answers;
-  const isMPA = pageMode === 'MPA';
+  const isMPA = pageMode === "MPA";
   // ejs注入的模版变量
   const ejsData = {
     ...answers,
     projectDir: targetDir,
-    pageName:'index'
+    pageName: "index",
   };
   // 生成文件树对象
   const filesTreeObj = {};
   fileList.forEach((oriPath) => {
     let targetPath = oriPath;
     const absolutePath = path.resolve(__dirname, "../template", oriPath);
-  
+    const { stateLibrary } = answers;
     if (isMPA && /^src[\\/].+/.test(oriPath)) {
-      // 针对多页场景，生成多页面模版
-      const [dir, file] = oriPath.split(/[\\/]+/);
-      ["index", "pageA", "pageB"].forEach((pageName) => {
-        targetPath = `${dir}/pages/${pageName}/${file}`;
-        filesTreeObj[targetPath] = renderFile(absolutePath, {
-          ...ejsData,
-          pageName,
+      if (!/recoil|redux|mobx|zustand/.test(oriPath)) {
+        // 针对多页场景，生成多页面模版
+        const [dir, file] = oriPath.split(/[\\/]+/);
+        ["index", "pageA", "pageB"].forEach((pageName) => {
+          targetPath = `${dir}/pages/${pageName}/${file}`;
+          filesTreeObj[targetPath] = renderFile(absolutePath, {
+            ...ejsData,
+            pageName,
+          });
         });
-      });
+      }
     } else {
       const content = renderFile(absolutePath, ejsData);
-      filesTreeObj[targetPath] = content;
+      if (!/recoil|redux|mobx|zustand/.test(targetPath)) {
+        filesTreeObj[targetPath] = content;
+      }
+      if (targetPath.includes(stateLibrary)) {
+        filesTreeObj[targetPath.replace("/" + stateLibrary, "")] = content;
+      }
     }
   });
   return filesTreeObj;

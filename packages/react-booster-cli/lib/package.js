@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2022-02-28 14:42:09
- * @LastEditTime: 2022-03-07 14:27:24
+ * @LastEditTime: 2022-03-11 17:48:26
  * @LastEditors: Please set LastEditors
  * @Description: 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  * @FilePath: \light\packages\react-light-cli\lib\generate.js
@@ -41,6 +41,9 @@ async function package(answers, pkg) {
     reactRouterVersion,
   } = answers;
   pkg.dependencies[stateLibrary] = "latest";
+  if(stateLibrary === "mobx"){
+    pkg.dependencies["mobx-react-lite"] =  "^3.3.0";
+  }
   if (platform === "mobile") {
     pkg.devDependencies["postcss-pxtorem"] = "^6.0.0";
     pkg.dependencies["lib-flexible"] = "^0.3.2";
