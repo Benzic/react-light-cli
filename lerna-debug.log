@@ -1,19 +1,14 @@
-0 silly argv {
-0 silly argv   _: [ 'publish' ],
-0 silly argv   composed: 'publish',
-0 silly argv   lernaVersion: '4.0.0',
-0 silly argv   '$0': 'C:\\Users\\User\\AppData\\Roaming\\npm\\node_modules\\lerna\\cli.js'
-0 silly argv }
-1 notice cli v4.0.0
-2 verbose rootPath D:\Users\User\Desktop\booster
-3 error JSONError: Unexpected token "}" (0x7D) in JSON at position 719 while parsing near "...node\": \">=12\"\n  },\n\n}\n" in packages\react-lite-cli\package.json
-3 error
-3 error [0m [90m 35 |[39m   }[33m,[39m[0m
-3 error [0m [90m 36 |[39m[0m
-3 error [0m[31m[1m>[22m[39m[90m 37 |[39m }[0m
-3 error [0m [90m    |[39m [31m[1m^[22m[39m[0m
-3 error [0m [90m 38 |[39m[0m
-3 error
-3 error     at parseJson (D:\Users\User\Desktop\booster\node_modules\parse-json\index.js:29:21)
-3 error     at parse (D:\Users\User\Desktop\booster\node_modules\load-json-file\index.js:15:9)
-3 error     at module.exports (D:\Users\User\Desktop\booster\node_modules\load-json-file\index.js:18:47)
+15 error Error: Command failed with exit code 1: git remote update
+15 error Connection reset by 140.82.113.4 port 22
+15 error fatal: Could not read from remote repository.
+15 error
+15 error Please make sure you have the correct access rights
+15 error and the repository exists.
+15 error error: Could not fetch origin
+15 error Fetching origin
+15 error     at makeError (D:\Users\User\Desktop\booster\node_modules\execa\lib\error.js:60:11)
+15 error     at Function.module.exports.sync (D:\Users\User\Desktop\booster\node_modules\execa\index.js:194:17)
+15 error     at Object.execSync (D:\Users\User\Desktop\booster\node_modules\@lerna\child-process\index.js:39:16)
+15 error     at updateRemote (D:\Users\User\Desktop\booster\node_modules\@lerna\version\lib\is-behind-upstream.js:34:16)
+15 error     at isBehindUpstream (D:\Users\User\Desktop\booster\node_modules\@lerna\version\lib\is-behind-upstream.js:16:3)
+15 error     at VersionCommand.initialize (D:\Users\User\Desktop\booster\node_modules\@lerna\version\index.js:153:9)
